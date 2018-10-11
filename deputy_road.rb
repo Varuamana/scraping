@@ -23,10 +23,10 @@ def get_the_email_of_a_deputy_from_its_webpage(url)
     
     @url_tab.each do |url|
         
-        Nokogiri::HTML(open(url)).css('a.email').each do |mail|
-          
+        Nokogiri::HTML(open(url)).css('dd:nth-child(3) > a.email').each do |mail|
+
             @mail_tab << mail['href'].delete_prefix('mailto:')
-        
+
         end
     
     end
